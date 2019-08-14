@@ -7,7 +7,7 @@ const auth = require('../../middleware/auth');
 const Forum = require('../../models/Forum');
 
 router.get('/', (req, res) => {
-    Forum.find().sort({ date: -1 }).then(items => res.json(forums));
+    Forum.find().sort({ date: -1 }).then(forums => res.json(forums));
 });
 
 router.post('/', auth, (req, res) => {
