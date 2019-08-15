@@ -10,7 +10,7 @@ import {
 } from '../actions/types';
 
 const initialState = {
-    token: localStorage.getItem('token'),
+    token: localStorage.getForum('token'),
     isAuthenticated: null,
     isLoading: false,
     user: null
