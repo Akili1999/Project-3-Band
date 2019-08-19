@@ -47,10 +47,43 @@ class NavBar extends Component {
                     </span>
                 </NavItem>
                 <NavItem>
-                    <Logout />
+                    <Logout/>
                 </NavItem>
             </Fragment>
         );
-        
+        const guestLinks = (
+            <Fragment>
+                <NavItem>
+                    <RegisterModal/>
+                </NavItem>
+                <NavItem>
+                    <LoginModal/>
+                </NavItem>
+            </Fragment>
+        );
+        return (
+            <div>
+                <Navbar color='blue' role='navigation'>
+                    <Container>
+                        <NavbarBrand href='/'>Band-Bump</NavbarBrand>
+                        <NavbarToggler onClick={this.toggle}/>
+                        <Collapse isOpen={this.state.isOpen} navbar>
+                            <Nav className='ml-auto' navbar>
+                                {isAuthenticated ? authLinks : guestLinks}
+                            </Nav>
+                        </Collapse>
+                    </Container>
+                </Navbar>
+            </div>
+        );
     }
 }
+
+const mapStateToProps = state => ({
+    auth: state.auth
+});
+
+export default connect (
+    mapStateToProps,
+    null
+)(NavBar);
