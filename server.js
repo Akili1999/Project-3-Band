@@ -16,6 +16,10 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.json());
 
+app.use('/api/forums', require('./routes/api/forums'));
+app.use('/api/users', require('./routes/api/users'));
+app.use('/api/auth', require('./routes/api/auth'));
+
 if (process.env.NODE_ENV === "production") {
     app.use(express.static('client/build'));
 

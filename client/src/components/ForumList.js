@@ -22,6 +22,31 @@ class ForumList extends Component {
     }
 
     render() {
-
+        const { forums } = this.props.forum;
+        return (
+            <Container>
+                <ListGroup>
+                    <TransitionGroup className='forums-list'>
+                    {forums.map(({ _id, title }) => (
+                        <CSSTransition key={_id} timeout={500} classNames='fade'>
+                            <ListGroupItem>
+                                {title}
+                            </ListGroupItem>
+                        </CSSTransition>
+                    ))}
+                    </TransitionGroup>
+                </ListGroup>
+            </Container>
+        )
     }
 }
+
+const mapStateToProps = state => ({
+    forum: state.forum,
+    isAuthenticated: state.auth.isAuthenticated
+});
+
+export default connect (
+    mapStateToProps,
+    { getForums }
+)(ForumList)
