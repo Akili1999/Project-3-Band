@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { GET_FORUMS, ADD_FORUM, DELETE_FORUM, FORUMS_LOADING } from './types';
+import { GET_FORUMS, ADD_FORUM, FORUMS_LOADING } from './types';
 
 import { tokenConfig } from './authActions';
 
