@@ -11,7 +11,7 @@ import { getForums } from '../actions/forumActions';
 import PropTypes from 'prop-types';
 
 class ForumList extends Component {
-    static PropTypes = {
+    static propTypes = {
         getForums: PropTypes.func.isRequired,
         forum: PropTypes.object.isRequired,
         isAuthenticated: PropTypes.bool
