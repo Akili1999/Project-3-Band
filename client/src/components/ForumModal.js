@@ -13,7 +13,7 @@ import {
 
 import { connect } from 'react-redux';
 
-import { addForum } from '../actions/forumActions';
+import { addItem } from '../actions/forumActions';
 
 import PropTypes from 'prop-types';
 
@@ -40,11 +40,11 @@ class ForumModal extends Component {
     onSubmit = e => {
         e.preventDefault();
 
-        const newForum = {
+        const newItem = {
             name: this.state.name
         };
 
-        this.props.addForum(newForum);
+        this.props.addItem(newItem);
 
         this.toggle();
     };
@@ -68,14 +68,39 @@ class ForumModal extends Component {
                     <ModalBody>
                         <Form onSubmit={this.onSubmit}>
                             <FormGroup>
+                            <Label for='title'>title</Label>
                                 <Input
                                 type='text'
                                 title='title'
+                                id='title'
+                                onChange={this.onChange}
+                                />
+                                <Label for='band'>Band</Label>
+                                <Input
+                                type='text'
                                 band='band'
+                                id='band'
+                                onChange={this.onChange}
+                                />
+                                <Label for='genre'>Genre</Label>
+                                <Input
+                                type='text'
                                 genre='genre'
-                                state='state'
+                                id='genre'
+                                onChange={this.onChange}
+                                />
+                                <Label for='state'>State</Label>
+                                <Input
+                                type='text'
+                                title='state'
+                                id='state'
+                                onChange={this.onChange}
+                                />
+                                <Label for='city'>City</Label>
+                                <Input
+                                type='text'
                                 city='city'
-                                id='forum'
+                                id='city'
                                 onChange={this.onChange}
                                 />
                                 <Button color='blue' style={{ marginTop: '2rem' }} block>
@@ -91,11 +116,11 @@ class ForumModal extends Component {
 }
 
 const mapStateToProps = state => ({
-    forum: state.forum,
+    item: state.item,
     isAuthenticated: state.auth.isAuthenticated
 });
 
 export default connect(
     mapStateToProps,
-    { addForum }
+    { addItem }
 )(ForumModal);

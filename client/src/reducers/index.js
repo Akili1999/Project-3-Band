@@ -1,13 +1,13 @@
 import { combineReducers } from 'redux';
 
-import forumReducer from './forumReducer';
+import itemReducer from './itemReducer';
 
 import errorReducer from './errorReducer';
 
 import authReducer from './authReducer';
 
 export default combineReducers({
-    forum: forumReducer,
+    item: itemReducer,
     error: errorReducer,
     auth: authReducer
 })

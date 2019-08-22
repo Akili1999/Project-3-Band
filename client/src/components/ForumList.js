@@ -1,36 +1,36 @@
 import React, { Component } from 'react';
 
-import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap';
+import { Container, ListGroup, ListGroupItem } from 'reactstrap';
 
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import { connect } from 'react-redux';
 
-import { getForums } from '../actions/forumActions';
+import { getItems } from '../actions/forumActions';
 
 import PropTypes from 'prop-types';
 
 class ForumList extends Component {
     static propTypes = {
-        getForums: PropTypes.func.isRequired,
-        forum: PropTypes.object.isRequired,
+        getItems: PropTypes.func.isRequired,
+        item: PropTypes.object.isRequired,
         isAuthenticated: PropTypes.bool
     };
 
     componentDidMount() {
-        this.props.getForums();
+        this.props.getItems();
     }
 
     render() {
-        const { forums } = this.props.forum;
+        const { items } = this.props.item;
         return (
             <Container>
                 <ListGroup>
-                    <TransitionGroup className='forums-list'>
-                    {forums.map(({ _id, title }) => (
+                    <TransitionGroup className='forum-list'>
+                    {items.map(({ _id, name }) => (
                         <CSSTransition key={_id} timeout={500} classNames='fade'>
                             <ListGroupItem>
-                                {title}
+                                {name}
                             </ListGroupItem>
                         </CSSTransition>
                     ))}
@@ -42,11 +42,11 @@ class ForumList extends Component {
 }
 
 const mapStateToProps = state => ({
-    forum: state.forum,
+    item: state.item,
     isAuthenticated: state.auth.isAuthenticated
 });
 
 export default connect (
     mapStateToProps,
-    { getForums }
+    { getItems }
 )(ForumList)

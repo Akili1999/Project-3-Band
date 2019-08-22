@@ -23,13 +23,14 @@
   },
   "homepage": "https://github.com/Akili1999/Project-3-Band#readme",
   "devDependencies": {
-    "concurrently": "^4.1.0",
+    "concurrently": "^4.1.2",
     "nodemon": "^1.18.7"
   },
   "dependencies": {
-    "create-react-app": "^3.1.1",
     "bcryptjs": "^2.4.3",
+    "bootstrap": "^4.3.1",
     "config": "^3.0.1",
+    "create-react-app": "^3.1.1",
     "express": "^4.16.3",
     "jsonwebtoken": "^8.5.0",
     "mongoose": "^5.1.6"

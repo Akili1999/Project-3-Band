@@ -15,18 +15,18 @@ import { connect } from 'react-redux';
 
 import PropTypes from 'prop-types';
 
-import RegisterModal from './RegisterModal';
+import RegisterModal from './auth/RegisterModal';
 
-import LoginModal from './LoginModal';
+import LoginModal from './auth/LoginModal';
 
-import Logout from './Logout';
+import Logout from './auth/Logout';
 
 class NavBar extends Component {
     state = {
         isOpen: false
     };
 
-    static PropTypes = {
+    static propTypes = {
         auth: PropTypes.object.isRequired
     };
 

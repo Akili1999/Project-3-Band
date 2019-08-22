@@ -1,10 +1,10 @@
-export const GET_FORUMS = 'GET_FORUMS';
+export const GET_ITEMS = 'GET_ITEMS';
 
-export const ADD_FORUM = 'ADD_FORUM';
+export const ADD_ITEM = 'ADD_ITEM';
 
-export const DELETE_FORUM = 'DELETE_FORUM';
+export const DELETE_ITEM = 'DELETE_ITEM';
 
-export const FORUMS_LOADING = 'FORUMS_LOADING';
+export const ITEMS_LOADING = 'ITEMS_LOADING';
 
 export const USER_LOADING = 'USER_LOADING';
 

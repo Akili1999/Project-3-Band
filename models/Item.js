@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const ForumSchema = new Schema({
+const ItemSchema = new Schema({
     title: {
         type: String,
         required: true
@@ -25,4 +25,4 @@ const ForumSchema = new Schema({
     }
 });
 
-module.exports = Forum = mongoose.model('forum', ForumSchema);
+module.exports = Item = mongoose.model('item', ItemSchema);

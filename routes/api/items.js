@@ -4,26 +4,26 @@ const router = express.Router();
 
 const auth = require('../../middleware/auth');
 
-const Forum = require('../../models/Forum');
+const Item = require('../../models/Item');
 
 router.get('/', (req, res) => {
-    Forum.find().sort({ date: -1 }).then(forums => res.json(forums));
+    Item.find().sort({ date: -1 }).then(items => res.json(items));
 });
 
 router.post('/', auth, (req, res) => {
-    const newForum = new Forum({
+    const newItem = new Item({
         title: req.body.title,
         band: req.body.band,
         genre: req.body.genre,
         state: req.body.state,
         city: req.body.city
     });
-    newForum.save().then(forum => res.json(forum));
+    newItem.save().then(item => res.json(item));
 });
 
 router.delete('/:id', auth, (req, res) => {
-    Forum.findById(req.params.id)
-    .then(forum => forum.remove().then(() => res.json({ success: true })))
+    Item.findById(req.params.id)
+    .then(item => item.remove().then(() => res.json({ success: true })))
     .catch(err => res.status(404).json({ success: false }));
 });
 

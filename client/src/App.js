@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import NavBar from ' ./components/Navbar';
+import NavBar from './components/NavBar';
 
 import ForumList from './components/ForumList';
 
@@ -12,9 +12,7 @@ import { Provider } from 'react-redux';
 
 import store from './store';
 
-import { loadUser } from './actions/authActions'
-
-import 'bootstrap/dist/css/boostrap.min.css'
+import { loadUser } from './actions/authActions';
 
 import './App.css';
 
@@ -27,18 +25,14 @@ class App extends Component {
     return (
       <Provider store= {store}>
         <div className='App'>
-          <NavBar>
+          <NavBar />
             <Container>
-              <ForumModal>
-                <ForumList>
-                  
-                </ForumList>
-              </ForumModal>
+              <ForumModal />
+                <ForumList />
             </Container>
-          </NavBar>
         </div>
       </Provider>
-    )
+    );
   }
 }
 
