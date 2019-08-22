@@ -22,18 +22,11 @@ class ForumList extends Component {
     }
 
     render() {
-        const { items } = this.props.item;
         return (
             <Container>
                 <ListGroup>
-                    <TransitionGroup className='forum-list'>
-                    {items.map(({ _id, name }) => (
-                        <CSSTransition key={_id} timeout={500} classNames='fade'>
-                            <ListGroupItem>
-                                {name}
-                            </ListGroupItem>
-                        </CSSTransition>
-                    ))}
+                    <TransitionGroup>
+                 
                     </TransitionGroup>
                 </ListGroup>
             </Container>
