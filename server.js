@@ -8,10 +8,6 @@ const app = express();
 
 const PORT = process.env.PORT || 3001;
 
-const config = require('config')
-
-const db = config.get('mongoURI')
-
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.json());
@@ -28,7 +24,7 @@ if (process.env.NODE_ENV === "production") {
     })
 }
 
-mongoose.connect(db, { useNewUrlParser: true, useCreateIndex: true }).then(() => console.log('Database Connected')).catch(err => console.log(err));
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactbooks");
 
 app.listen(PORT, function() {
     console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);

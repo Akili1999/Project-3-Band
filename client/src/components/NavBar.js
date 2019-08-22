@@ -63,7 +63,7 @@ class NavBar extends Component {
         );
         return (
             <div>
-                <Navbar color='dark' dark expand='sm' className='mb-5'>
+                <Navbar color='warning' dark expand='sm' className='mb-5'>
                     <Container>
                         <NavbarBrand href='/'>Band-Bump</NavbarBrand>
                         <NavbarToggler onClick={this.toggle}/>

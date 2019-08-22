@@ -17,6 +17,8 @@ class ForumList extends Component {
         isAuthenticated: PropTypes.bool
     };
 
+    
+
     componentDidMount() {
         this.props.getItems();
     }

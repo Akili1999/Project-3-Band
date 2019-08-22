@@ -1,5 +1,4 @@
 {
-    "mongoURI": "mongodb://localhost/reactbooks",
     "jwtSecret": "bb_myJwtSecret"
   }
   

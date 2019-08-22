@@ -22,6 +22,9 @@ const ItemSchema = new Schema({
     city: {
         type: String,
         required: true
+    },
+    recent: {
+        type: String,
     }
 });
 
