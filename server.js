@@ -2,29 +2,40 @@ const express = require('express');
 
 const mongoose = require('mongoose');
 
-const path = require('path');
-
 const app = express();
 
 const PORT = process.env.PORT || 3001;
+
+const passport = require("passport")
+
+const session = require("express-session");
+
+const routes = require("./routes")
+
+app.use(
+    session({
+        secret: "terrible-string",
+        resave: false,
+        saveUninitialized: false,
+        cookie: {secure: false}
+    })
+);
+
+app.use(passport.initialize())
+
+app.use(passport.session())
+
+app.use(routes);
 
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.json());
 
-app.use('/api/items', require('./routes/api/items'));
-app.use('/api/users', require('./routes/api/users'));
-app.use('/api/auth', require('./routes/api/auth'));
-
 if (process.env.NODE_ENV === "production") {
     app.use(express.static('client/build'));
-
-    app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
-    })
 }
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactbooks");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/bandbump");
 
 app.listen(PORT, function() {
     console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
